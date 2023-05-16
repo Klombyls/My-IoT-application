@@ -1,0 +1,109 @@
+<Programm>:
+    canvas.before:
+        Color:
+            rgba: (.5, .5, .5, 1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    do_default_tab: False
+    TabbedPanelItem:
+        text: 'Устройства'
+        ScrollView:
+            canvas.before:
+                Color:
+                    rgba: (.4, .4, .4, 1)
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            id: scroll
+            BoxLayout:
+                id: box
+                orientation: 'vertical'
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: 20
+    TabbedPanelItem:
+        text: 'Добавить'
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba: (.4, .4, .4, 1)
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            orientation: 'vertical'
+            Label:
+                text: 'Введите название устройства'
+                text_size: self.size
+                halign: 'center'
+                valign: 'middle'
+                size_hint: 1, 0.1
+                minimum_height: 25
+            TextInput:
+                id: inputNameDevice
+                multiline: False
+                size_hint: 1, None
+                height: 40
+            Label:
+                text: 'Введите локальный IP адресс устройства'
+                text_size: self.size
+                halign: 'center'
+                valign: 'middle'
+                size_hint: 1, 0.1
+                minimum_height: 25
+            TextInput:
+                id: inputIPDevice
+                multiline: False
+                size_hint: 1, None
+                height: 40
+            Label:
+                id: errNotif
+                text_size: self.size
+                halign: 'center'
+                valign: 'middle'
+                size_hint: 1, 0.1
+                minimum_height: 25
+            BoxLayout:
+
+            Button:
+                text: 'Сохранить'
+                size_hint: 1, None
+                height: 50
+                on_press: app.add_new_widget()
+
+<ItemScroll>:
+    orientation:'horizontal'
+    size_hint_y: None
+    height: 100
+    Button:
+        id: btn
+        size_hint: None, None
+        width: 100
+        height: 100
+        background_color: (.3, .3, .3, 1)
+    BoxLayout:
+        orientation:'vertical'
+        size_hint_y: None
+        height: 100
+        Label:
+            id: nameDevice
+            size_hint: 1, None
+            height: 50
+            font_size: '25sp'
+            halign: 'center'
+            valign: 'middle'
+        Label:
+            id: ipDevice
+            size_hint: 1, None
+            height: 50
+            font_size: '25sp'
+            halign: 'center'
+            valign: 'middle'
+    CustomBtn:
+        text: 'x'
+        id: rmvbtn
+        font_size: '40sp'
+        size_hint: None, None
+        width: 100
+        height: 100
+        background_color: (1, 1, 1, 1)
